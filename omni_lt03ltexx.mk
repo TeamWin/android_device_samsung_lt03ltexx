@@ -20,17 +20,17 @@
 #
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/cm/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, device/samsung/lt03ltexx/device.mk)
 # This is where we'd set a backup provider if we had one
 #$(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
+PRODUCT_COPY_FILES += \
+	device/samsung/lt03ltexx/init.recovery.qcom.rc:root/init.recovery.qcom.rc
 
 # Discard inherited values and use our own instead.
-PRODUCT_NAME := cm_lt03ltexx
+PRODUCT_NAME := omni_lt03ltexx
 PRODUCT_DEVICE := lt03ltexx
 PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := lt03ltexx
